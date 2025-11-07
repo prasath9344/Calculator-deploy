@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main  # deploy when main branch updates
-      - dev   #add your current branch
+      - test   #add your current branch
   workflow_dispatch:  # allows manual trigger from Actions tab
 
 jobs:
