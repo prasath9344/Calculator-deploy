@@ -25,19 +25,19 @@ jobs:
       - name: Copy Docker image to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          source: "myapp.tar"
-          target: "~/app/"
+          host: ${{ secrets.REMOTE_HOST }}        # 👈 Must be valid
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./dist/*"
+          target: "/var/www/html"
 
 
       - name: SSH and deploy
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          host: ${{ secrets.REMOTE_HOST }}        # 👈 Must be valid
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           
           port: 22
           script: |
