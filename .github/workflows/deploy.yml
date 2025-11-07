@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         run: |
@@ -28,7 +28,7 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}        # 👈 Must be valid
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./build/*"
+          source: "./dist/*"
           target: "/var/www/html"
 
 
