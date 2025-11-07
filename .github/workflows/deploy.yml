@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v4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
+      - uses: actions/checkout@v4${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
         run: |
