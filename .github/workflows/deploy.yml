@@ -6,7 +6,7 @@ on:
       - main  # deploy when main branch updates
       - test   #add your current branch
   workflow_dispatch:  # allows manual trigger from Actions tab
-
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
